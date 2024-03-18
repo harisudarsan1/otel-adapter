@@ -98,6 +98,11 @@ func (operator *Input) Start(_ operator.Persister) error {
 	}
 	operator.Logger().Info("Checked the liveness of the gRPC server")
 
+	grafana_nodegraph, _ := os.LookupEnv("GRAFANA_NODEGRAPH")
+
+	if grafana_nodegraph == "true" {
+		operator.nodeGraph(ctx)
+	}
 	if logfilter == "all" || logfilter == "kubearmorLogs" {
 		// watch messages
 		operator.wg.Add(1)
