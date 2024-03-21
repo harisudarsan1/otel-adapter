@@ -4,10 +4,7 @@ metadata:
   name: kubearmor-collector
   namespace: kubearmor
 spec:
-  image: harisudarsan/otel:latest
-  env:
-  - name: GRAFANA_NODEGRAPH
-    value: "true"
+  image: kubearmor/otel-adapter:latest
   imagePullPolicy: Always
   config: |
     receivers:
