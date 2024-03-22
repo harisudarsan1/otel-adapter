@@ -4,8 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
-
-	"github.com/gorilla/mux"
 )
 
 type NodeField struct {
@@ -124,14 +122,4 @@ func (operator *Input) nodeGraph(ctx context.Context) {
 			}
 		}
 	}()
-}
-
-func startServer() {
-	r := mux.NewRouter()
-
-	r.HandleFunc("/api/graph/fields", fetchGraphFields).Methods("GET")
-	r.HandleFunc("/api/graph/data", fetchGraphData).Methods("GET")
-	r.HandleFunc("/api/health", checkHealth).Methods("GET")
-
-	http.ListenAndServe(":5000", r)
 }
