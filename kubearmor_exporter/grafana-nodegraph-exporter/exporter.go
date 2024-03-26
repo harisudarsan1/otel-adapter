@@ -6,7 +6,6 @@ import (
 	"sync"
 
 	"go.opentelemetry.io/collector/component"
-	// "go.opentelemetry.io/collector/exporter"
 	"go.opentelemetry.io/collector/pdata/plog"
 )
 
